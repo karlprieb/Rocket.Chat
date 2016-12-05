@@ -13,6 +13,8 @@ Template.adminUsers.helpers
 		return RocketChat.TabBar.getData()
 	emailAddress: ->
 		return _.map(@emails, (e) -> e.address).join(', ')
+	userRoles: ->
+		return @roles.join(', ')
 
 Template.adminUsers.onCreated ->
 	instance = @
@@ -60,7 +62,7 @@ Template.adminUsers.onCreated ->
 		filter = _.trim instance.filter?.get()
 		if filter
 			filterReg = new RegExp s.escapeRegExp(filter), "i"
-			query = { $or: [ { username: filterReg }, { name: filterReg }, { "emails.address": filterReg } ] }
+			query = { $or: [ { username: filterReg }, { name: filterReg }, { "emails.address": filterReg }, { roles: filterReg } ] }
 		else
 			query = {}
 

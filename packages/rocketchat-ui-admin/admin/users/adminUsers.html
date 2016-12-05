@@ -20,14 +20,16 @@
 				<div class="results">
 					{{{_ "Showing_results" users.length}}}
 				</div>
-				<div class="list">
+				<div class="list user-list">
 					<table>
 						<thead>
 							<tr>
-								<th>&nbsp;</th>
-								<th width="34%">{{_ "Name"}}</th>
-								<th width="33%">{{_ "Username"}}</th>
-								<th width="33%">{{_ "Email"}}</th>
+								<th></th>
+								<th>{{_ "Name"}}</th>
+								<th>{{_ "Username"}}</th>
+								<th>{{_ "Email"}}</th>
+								<th>{{_ "Role"}}</th>
+								<th>{{_ "Status"}}</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -41,6 +43,10 @@
 								<td>{{name}}</td>
 								<td>{{username}}</td>
 								<td>{{emailAddress}}</td>
+								<td>{{userRoles}}</td>
+								<td>
+									<i class="{{#if active}}icon-ok-circled{{else}}icon-block{{/if}}"></i>
+								</td>
 							</tr>
 							{{/each}}
 						</tbody>
